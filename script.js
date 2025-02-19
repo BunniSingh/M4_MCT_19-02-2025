@@ -32,7 +32,8 @@ function createUserList({ avatar, name, time }, index) {
 function setList(arr) {
   arr.map((item, index) => createUserList(item, index));
 }
-setList(usersList);
+setList(usersData);
+// usersData.map((item,index)=>createUserList(item,index))
 
 //  Function to change chat Data based on click...............................
 function checkScreen(element, index) {
@@ -49,7 +50,7 @@ function currentUser(element, index) {
   userList.forEach((element) => element.classList.remove("active"));
   element.parentElement.classList.add("active");
   const name = element.children[1].children[0].children[0].innerHTML;
-  const currentUserData = usersList.filter((item) => item.name === name);
+  const currentUserData = usersData.filter((item) => item.name === name);
   let selectedChat=undefined;
   Object.keys(JsonData).forEach((element,i) => {
     if(+element.charAt(element.length-1)==index+1){
@@ -136,9 +137,9 @@ function serachUser(event) {
   document.querySelector(".userList").innerHTML = "";
   input = event.target.value;
   if (input === "") {
-    setList(usersList);
+    setList(usersData);
   } else {
-    const newList = usersList.filter((item) =>
+    const newList = usersData.filter((item) =>
       item.name.toLowerCase().includes(input.toLowerCase())
     );
     if (newList.length === 0) {
@@ -151,37 +152,37 @@ function serachUser(event) {
 }
 
 // function to change theme
-function selectTheme(event) {
-  let r = document.querySelector(":root");
-  let color = event.target.value;
-  if (color === "Change theme") {
-    r.style.setProperty("--my-mssg", "#00A0AE");
-  } else {
-    r.style.setProperty("--my-mssg", color);
-  }
-}
+// function selectTheme(event) {
+//   let r = document.querySelector(":root");
+//   let color = event.target.value;
+//   if (color === "Change theme") {
+//     r.style.setProperty("--my-mssg", "#00A0AE");
+//   } else {
+//     r.style.setProperty("--my-mssg", color);
+//   }
+// }
 
 // function to change Background image
-function changeBg(event) {
-  let r = document.querySelector(":root");
-  let bg = event.target.value;
-  switch (bg) {
-    case "Change background":
-      r.style.setProperty("--background-img", 'url("https://i.pinimg.com/originals/f5/05/24/f50524ee5f161f437400aaf215c9e12f.jpg")');
+// function changeBg(event) {
+//   let r = document.querySelector(":root");
+//   let bg = event.target.value;
+//   switch (bg) {
+//     case "Change background":
+//       r.style.setProperty("--background-img", 'url("https://i.pinimg.com/originals/f5/05/24/f50524ee5f161f437400aaf215c9e12f.jpg")');
     
-      break;
-    case "image1":
-      r.style.setProperty("--background-img", 'url("https://w0.peakpx.com/wallpaper/818/148/HD-wallpaper-whatsapp-background-cool-dark-green-new-theme-whatsapp.jpg")');
+//       break;
+//     case "image1":
+//       r.style.setProperty("--background-img", 'url("https://w0.peakpx.com/wallpaper/818/148/HD-wallpaper-whatsapp-background-cool-dark-green-new-theme-whatsapp.jpg")');
      
-      break;
-    case "image2":
-      r.style.setProperty("--background-img", 'url("https://wallpaperaccess.com/full/1288076.jpg")');
-    break;
-    case "image3":
-      r.style.setProperty("--background-img", 'url("https://i.pinimg.com/736x/78/1e/21/781e212cb0a891c6d8a3738c525e235d.jpg")');
-    break;
-  }
-}
+//       break;
+//     case "image2":
+//       r.style.setProperty("--background-img", 'url("https://wallpaperaccess.com/full/1288076.jpg")');
+//     break;
+//     case "image3":
+//       r.style.setProperty("--background-img", 'url("https://i.pinimg.com/736x/78/1e/21/781e212cb0a891c6d8a3738c525e235d.jpg")');
+//     break;
+//   }
+// }
 //  function for char and word count
 function calc(event) {
   const str=event.value
@@ -230,4 +231,11 @@ function sendMssg() {
   inpMssg.value=""
   calc(document.querySelector('.inpMssg'))
   }
+  
+
+  
+  
+  
+  
+  
 }
