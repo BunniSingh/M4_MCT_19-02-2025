@@ -117,7 +117,7 @@ header {
   font-size: 11px;
   
 }
-/*  CSS for right side ...............................⬇ */
+/* CSS for right side */
 .right {
   width: 68% ; 
   height: 100%;
@@ -137,7 +137,6 @@ header {
   min-height: 72vh;
 }
 .chat {
-  /* width: 100%; */
   height: 57vh;
   box-sizing: border-box;
   overflow: hidden;
@@ -260,7 +259,7 @@ span>img {
   border: none;
   width: 85%;
   height: 70%;
-  font-size: 13px;
+  font-size: 15px;
   padding-left: 10px;
   background-color: var(--selected-chat);
 }
@@ -269,6 +268,8 @@ input:focus {
 }
 .send-btn-div{
   height: 70%;
+  display: flex;
+  align-items: center;
 }
 .send-btn{
   background-color: var(--my-mssg);

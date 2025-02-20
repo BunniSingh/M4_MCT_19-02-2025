@@ -33,9 +33,8 @@ function setList(arr) {
   arr.map((item, index) => createUserList(item, index));
 }
 setList(usersData);
-// usersData.map((item,index)=>createUserList(item,index))
 
-//  Function to change chat Data based on click...............................
+//  Function to change chat Data based on click
 function checkScreen(element, index) {
   if (window.innerWidth <= 750) {
     document.querySelector(".left").style.display = "none";
@@ -44,22 +43,22 @@ function checkScreen(element, index) {
   }
   currentUser(element, index);
 }
-// Function for getting Data for selected User .......................
+// Function for getting Data for selected User
 function currentUser(element, index) {
   const userList = document.querySelectorAll(".user-list");
   userList.forEach((element) => element.classList.remove("active"));
   element.parentElement.classList.add("active");
   const name = element.children[1].children[0].children[0].innerHTML;
   const currentUserData = usersData.filter((item) => item.name === name);
-  let selectedChat=undefined;
+  let selectedChat;
   Object.keys(JsonData).forEach((element,i) => {
-    if(+element.charAt(element.length-1)==index+1){
+    if(element.charAt(element.length-1)==index+1){
       selectedChat=Object.values(JsonData)[i]
     }
   });
   UpdateChat(currentUserData, selectedChat);
 }
-// Function for Updating Data for selected User .......................
+// Function for Updating Data for selected User 
 function UpdateChat([{ avatar, name, status }], chat) {
   const current_user = document.createElement("div");
   current_user.classList.add("current-user");
@@ -86,7 +85,7 @@ function UpdateChat([{ avatar, name, status }], chat) {
 }
 
 function AddChat(chat) {
-  if (chat !== undefined) {
+  if (chat) {
     const chatData = document.createElement("div");
     chatData.classList.add("chat");
     chat.forEach((element) => {
@@ -112,7 +111,7 @@ function AddChat(chat) {
   }
 }
 
-//Function togGo back for small screen ............................................
+//Function togGo back for small screen 
 function goBack() {
   document.querySelector(".right").style.display = "none";
   document.querySelector(".left").style.display = "block";
@@ -231,11 +230,5 @@ function sendMssg() {
   inpMssg.value=""
   calc(document.querySelector('.inpMssg'))
   }
-  
-
-  
-  
-  
-  
   
 }
